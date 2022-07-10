@@ -7,6 +7,12 @@ import hello.core.member.*;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 
+// Spring 도입
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+
+@Configuration
 public class AppConfig {
 
     /**
@@ -15,21 +21,24 @@ public class AppConfig {
      * 각 구현체들은 AppConfig로부터 주입받은 객체를 실행만하는 역할만한다
      */
 
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
         // 구현 클래스의 객체에 저장소 Type을 할당하여 전달해준다(이 경우 메모리 저장소로)
         // 구현 클래스는 이로인해 Interface에만 의존할수 있다
         // 이를 생성자 주입이라 한다
     }
-
-    private MemberRepository memberRepository() {
+    @Bean
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
+    @Bean
     public DiscountPolicy discountPolicy() {
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
