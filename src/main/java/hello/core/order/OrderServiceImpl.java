@@ -46,5 +46,11 @@ public class OrderServiceImpl implements OrderService {
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
+
+    // Test 용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
+
     // Last Line
 }
