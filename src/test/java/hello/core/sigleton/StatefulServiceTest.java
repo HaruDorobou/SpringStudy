@@ -37,6 +37,7 @@ class StatefulServiceTest {
         System.out.println("price = " + userAprice);
 
 //        assertThat(statefulService1.getPrice()).isEqualTo(10000);
+        assertThat(userAprice).isEqualTo(10000);
     }
 
     static class TestConfig {

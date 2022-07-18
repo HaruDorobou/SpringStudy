@@ -1,14 +1,16 @@
 package hello.core.order;
 
+import hello.core.annotaiton.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // Lombok이 알아서 생성자를 Init
+//@RequiredArgsConstructor Lombok이 알아서 생성자를 Init
 public class OrderServiceImpl implements OrderService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -27,6 +29,22 @@ public class OrderServiceImpl implements OrderService {
       */
 
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = rateDiscountPolicy;
+//        // 이 경우 @Autowired가 rateDiscountPolicy로 빈을 주입해줌
+//        // 왜냐 component scan 돌렸을때 discountPolicy가 두개였음 이걸 rateDiscuntpolicy로 등록해버린것
+//    }
+
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+        // @Qualifier 사용 예제
+    }
+    
 
     /**
      * Interface에만 의존하게 만들기 DIP 성립
