@@ -20,6 +20,7 @@ public class RateDiscountPolicy implements DiscountPolicy {
         } else {
             return 0;
         }
-
     }
+
+    // last line
 }
