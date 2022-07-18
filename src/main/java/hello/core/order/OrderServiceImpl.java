@@ -3,10 +3,12 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor // Lombok이 알아서 생성자를 Init
 public class OrderServiceImpl implements OrderService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -34,14 +36,28 @@ public class OrderServiceImpl implements OrderService {
      * => AppConfig 도입
       */
 
+
+    // 생성자 객체 '불변' 의존관계
+    // setter, getter를 의도적으로 두지 않는다
+    // 값 수정을 원천적으로 방지
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+    /**
+     * IF,생성자가 딱 하나만 있다면?
+     * @Autowired 없어도 스프링이 알아서 주입해줌
+     */
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        // 생성자 객체 '필수' 의존관계
+//        // 생성자에서 오는 값은 무조건 채워 넣어라
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
+/**      @RequiredArgsConstructor -> Lombok이 대신 만들어줌!!
+ *       생성자 코드가 없어진것이냐? 그건 아니고 실제 존재함
+ *      깔끔하게 생략해준것
+ * */
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

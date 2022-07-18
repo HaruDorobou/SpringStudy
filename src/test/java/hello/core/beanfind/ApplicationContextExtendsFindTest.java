@@ -47,7 +47,7 @@ public class ApplicationContextExtendsFindTest {
     @DisplayName("부모 타입으로 모두 조회")
     void findBeanAllByParentType() {
         Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);
-        assertThat(beansOfType.size()).isEqualTo(2);
+        assertThat(beansOfType.size()).isEqualTo(1);
         for (String key : beansOfType.keySet()) {
             System.out.println("key = " + key + " / value = " + beansOfType.values());
         }

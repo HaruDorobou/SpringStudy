@@ -25,13 +25,13 @@ public class ApplicationContextBasicFindTest {
         Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
-    @Test
-    @DisplayName("빈 이름으로 조회 Fail")
-    void findBeanByNameFail() {
-        MemberService memberService = ac.getBean("sxsdasd", MemberService.class);
-        assertThrows(NoSuchBeanDefinitionException.class,
-                () -> ac.getBean("sxsdasd", MemberService.class));
-    }
+//    @Test
+//    @DisplayName("빈 이름으로 조회 Fail")
+//    void findBeanByNameFail() {
+//        MemberService memberService = ac.getBean("sxsdasd", MemberService.class);
+//        assertThrows(NoSuchBeanDefinitionException.class,
+//                () -> ac.getBean("sxsdasd", MemberService.class));
+//    }
 
     @Test
     @DisplayName("빈 이름X 타입으로 조회")
