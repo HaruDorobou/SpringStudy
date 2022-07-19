@@ -21,13 +21,13 @@ public class ApplicationContextSameBeanFindTest {
 
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);
 
-    @Test
-    @DisplayName("타입으로 조회 시, 같은 타입이 둘 이상이 있으면 중복 오류 발생")
-    void findBeanByTypeDuplicate() {
-        MemberRepository bean = ac.getBean(MemberRepository.class);
-        assertThrows(NoUniqueBeanDefinitionException.class,
-                () -> ac.getBean(MemberRepository.class));
-    }
+//    @Test
+//    @DisplayName("타입으로 조회 시, 같은 타입이 둘 이상이 있으면 중복 오류 발생")
+//    void findBeanByTypeDuplicate() {
+//        MemberRepository bean = ac.getBean(MemberRepository.class);
+//        assertThrows(NoUniqueBeanDefinitionException.class,
+//                () -> ac.getBean(MemberRepository.class));
+//    }
 
     @Test
     @DisplayName("타입으로 조회 시, 같은 타입이 둘 이상이 있으면 빈 이름을 지정")
@@ -44,7 +44,7 @@ public class ApplicationContextSameBeanFindTest {
             System.out.println("key = " + key + " / value = " + beansOfType.values());
         }
         System.out.println("beansOfType = " + beansOfType);
-        assertThat(beansOfType.size()).isEqualTo(2);
+        assertThat(beansOfType.size()).isEqualTo(1);
     }
 
     @Configuration
@@ -55,13 +55,13 @@ public class ApplicationContextSameBeanFindTest {
             return new MemoryMemberRepository();
         }
 
-        @Bean
-        public MemberRepository memberRepository2() {
-            return new MemoryMemberRepository();
-        }
+//        @Bean
+//        public MemberRepository memberRepository2() {
+//            return new MemoryMemberRepository();
+//        }
 
-        // last line
+        // end line
     }
 
-    // last line
+    // end line
 }

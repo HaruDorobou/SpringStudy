@@ -40,5 +40,5 @@ public class OrderApp {
         System.out.println("order.calculatedPrice() = " + order.calculatedPrice());
     }
 
-    // last line
+    // end line
 }

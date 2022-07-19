@@ -1,5 +1,8 @@
 package hello.core.member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberServiceImpl implements MemberService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -11,10 +14,15 @@ public class MemberServiceImpl implements MemberService {
      */
 
     private final MemberRepository memberRepository;
-
+    
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+/**
+ * @Autowired -> Component Scan 후에 의존관계를 알아서 주입해준다
+ * 얼마나 편하냐
+ */
 
     @Override
     public void join(Member member) {
@@ -24,5 +32,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+    // Test 용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
