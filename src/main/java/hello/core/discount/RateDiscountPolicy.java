@@ -22,5 +22,5 @@ public class RateDiscountPolicy implements DiscountPolicy {
         }
     }
 
-    // last line
+    // end line
 }

@@ -69,5 +69,5 @@ public class SingletonTest {
         // Spring Container가 객체를 싱글톤으로 굴리는 것을 확인
     }
 
-    // last line
+    // end line
 }

@@ -53,5 +53,5 @@ public class ApplicationContextBasicFindTest {
         Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
-    // last line
+    // end line
 }

@@ -69,5 +69,5 @@ public class AutoAppConfig {
      * 여기에 있겠구나~ 라고 비즈니스 계층을 인식하는데 도움을 준다
      */
 
-    // last line
+    // end line
 }

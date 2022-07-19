@@ -73,8 +73,8 @@ public class ApplicationContextExtendsFindTest {
         @Bean
         public DiscountPolicy fixDiscountPolicy() { return new FixDiscountPolicy(); }
 
-        // last line
+        // end line
     }
 
-    // last line
+    // end line
 }

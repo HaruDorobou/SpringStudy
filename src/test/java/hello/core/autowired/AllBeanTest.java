@@ -52,8 +52,8 @@ public class AllBeanTest {
             return discountPolicy.discount(member, price);
         }
 
-        // last line
+        // end line
     }
 
-    // last line
+    // end line
 }

@@ -50,5 +50,5 @@ public class AppConfig {
     }
 
 
-    // last line
+    // end line
 }

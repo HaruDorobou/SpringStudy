@@ -30,5 +30,5 @@ public class ApplicationConfigApplicationContext {
             }
         }
     }
-    // last line
+    // end line
 }

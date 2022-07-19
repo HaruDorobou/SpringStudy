@@ -28,5 +28,5 @@ public class BeanDefinitionTest {
     * 하지만 하지만 Bean Definition의 메커니즘이 이렇다는 것만 인지하면 댈거얌
     */
 
-    // last line
+    // end line
 }

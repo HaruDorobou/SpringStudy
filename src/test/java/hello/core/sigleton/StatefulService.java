@@ -13,5 +13,5 @@ public class StatefulService {
     public void getPrice() {
 //        return this.price;
     }
-    // last line
+    // end line
 }
