@@ -22,6 +22,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 
+	// provider setting
+	implementation 'javax.inject:javax.inject:1'
+
 	// lombok 설정 추가
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
