@@ -14,16 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 public class LogDemoController {
 
     private final LogDemoService logDemoService;
-//    private final MyLogger myLogger;
+    private final MyLogger myLogger;
 
-    private final ObjectProvider<MyLogger> myLoggerProvider;
+//    private final ObjectProvider<MyLogger> myLoggerProvider;
     
     @RequestMapping("log-demo")
     @ResponseBody
     public String logDemo(HttpServletRequest request) {
         String requestURL = request.getRequestURL().toString();
-        MyLogger myLogger = myLoggerProvider.getObject(); // 주입시점에 컨테이너에서 provider가 조회해줌
-
+//        MyLogger myLogger = myLoggerProvider.getObject(); // 주입시점에 컨테이너에서 provider가 조회해줌
         myLogger.setRequestURL(requestURL);
         myLogger.log("Controller test");
         logDemoService.logic("testID");
